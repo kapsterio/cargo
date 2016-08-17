@@ -1,15 +1,27 @@
 package model;
 
+import com.google.common.collect.Lists;
+
 import java.util.List;
 
 public class WorkerModel {
     private int status;
     private int taskNum;
-    private int beginTime;
+    private long beginTime;
     private List<TaskModel> taskList;
     private String name;
     private String address;
 
+
+    public WorkerModel() {
+    }
+
+    public WorkerModel(String name) {
+        this.taskNum = 0;
+        this.beginTime = System.currentTimeMillis();
+        this.taskList = Lists.newArrayList();
+        this.name = name;
+    }
 
     public String getAddress() {
         return address;
@@ -43,11 +55,11 @@ public class WorkerModel {
         this.taskNum = taskNum;
     }
 
-    public int getBeginTime() {
+    public long getBeginTime() {
         return beginTime;
     }
 
-    public void setBeginTime(int beginTime) {
+    public void setBeginTime(long beginTime) {
         this.beginTime = beginTime;
     }
 
@@ -57,5 +69,9 @@ public class WorkerModel {
 
     public void setTaskList(List<TaskModel> taskList) {
         this.taskList = taskList;
+    }
+
+    public boolean submitTask(TaskModel taskModel) {
+        return false;
     }
 }
